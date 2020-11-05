@@ -1,5 +1,5 @@
 // g++ rvalue.cc -std=c++11
-// 测试rvalue
+// 测试rvalue 和 emplace_back
 
 #include <iostream>
 #include <string>
@@ -31,7 +31,7 @@ int main() {
   elections.emplace_back("Nelson Mandela", "South Africa", 1994);  //没有类的创建
 
   std::vector<President> reElections;
-  //   reElections.reserve(5); noexcept
+  reElections.reserve(6);
   std::cout << "\npush_back:\n";
   reElections.push_back(President("Franklin Delano Roosevelt", "the USA", 1936));
   std::cout << "-----\n";
@@ -41,6 +41,8 @@ int main() {
   auto d = President("deng", "the CHN", 1936);
   std::cout << "zzzzzzz push\n";
   reElections.push_back(p);
+  std::cout << "zzzzzzz emplace_back\n";
+  reElections.emplace_back(p);
   std::cout << "zzzzzzz push_back rvalue\n";
   reElections.push_back(std::move(p));
   std::cout << "zzzzzzz emplace_back rvalue\n";

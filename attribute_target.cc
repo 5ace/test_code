@@ -8,6 +8,7 @@
 // ./build_tools/gcc-8.3.0/bin/g++ git_test_code/attribute_target.cc -static-libstdc++ -mavx512f
 // 在所有机器输出avx512
 
+// 相似的问题见 https://hannes.hauswedell.net/post/2017/12/09/fmv/
 __attribute__((target("default"))) std::string version() {
   return "default";
 }

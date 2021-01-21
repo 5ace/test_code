@@ -2,7 +2,7 @@
 #include <string>
 
 // g++
-// ./build_tools/gcc-8.3.0/bin/g++ git_test_code/attribute_target.cc -static-libstdc++
+// ./build_tools/gcc-8.3.0/bin/g++ -static-libstdc++ git_test_code/attribute_target.cc
 // 在支持avx512机器 输出avx512f
 // 在支持不支持avx512机器 输出avx2
 // ./build_tools/gcc-8.3.0/bin/g++ git_test_code/attribute_target.cc -static-libstdc++ -mavx512f

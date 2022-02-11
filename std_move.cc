@@ -18,7 +18,8 @@ class MyClass {
 };
 int main() {
   MyClass a(10);
-  MyClass &&b = std::move(a);  // b 是个左值，https://zhuanlan.zhihu.com/p/335994370 能够声明出来的都是左值
+  MyClass &&b = std::move(a);  // b 是个左值，https://zhuanlan.zhihu.com/p/335994370 能够声明出来的都是左值;
+                               // 右值引用既可以是左值也可以是右值，如果有名称则为左值，否则是右值。
   std::cout << "a.data:" << a.data() << std::endl;
   MyClass c(std::move(a));
   std::cout << "a.data:" << a.data() << ",c.data:" << c.data() << std::endl;

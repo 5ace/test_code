@@ -25,6 +25,15 @@ struct President {
   President &operator=(const President &other);
 };
 
+void f(int && x) {
+  std::cout <<",in && "<< x << std::endl;
+}
+
+template<typename T>
+void tf(T&& x) {
+  std::cout <<",tf && "<< x << std::endl;
+}
+
 int main() {
   std::vector<President> elections;
   std::cout << "emplace_back:\n";
@@ -57,4 +66,17 @@ int main() {
     std::cout << president.name << " was re-elected president of " << president.country << " in "
               << president.year << ".\n";
   }
+
+
+  int cc= 3;
+  // f(cc); //cannot bind ‘int’ lvalue to ‘int&&’
+  int &dd =cc;
+  // f(dd); // cannot bind ‘int’ lvalue to ‘int&&’
+  // int && dd = std::move(cc); 
+  // f(dd); // cannot bind ‘int’ lvalue to ‘int&&’
+  f(4);
+  // =================================================================
+  tf(4);
+  tf(cc);
+  tf(dd);
 }
